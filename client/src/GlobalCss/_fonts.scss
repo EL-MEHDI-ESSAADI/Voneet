@@ -1,0 +1,14 @@
+@mixin font-face($name, $path, $weight, $format: "woff") {
+   @font-face {
+      font-family: $name;
+      font-style: normal;
+      font-weight: $weight;
+      font-display: swap;
+      src: url($path ) format($format);
+   }
+}
+
+@include font-face('Inter', "../Fonts/Inter/Inter-Regular.woff", 400);
+@include font-face('Inter', "../Fonts/Inter/Inter-Medium.woff", 500);
+@include font-face('Inter', "../Fonts/Inter/Inter-SemiBold.woff", 600);
+@include font-face('Inter', "../Fonts/Inter/Inter-Bold.woff", 700);
