@@ -1,8 +1,14 @@
 @import "fonts", "hope-ui";
 
 
-body {
-   min-height: 100vh;
+
+#root {
+   display: flex;
+
+   &>* {
+      min-height: 100vh;
+   }
+
 }
 
 *,
@@ -21,6 +27,13 @@ button {
    cursor: pointer;
    border: 0;
    background-color: initial;
+}
+
+.btn {
+   transition: color 300ms ease-in-out,
+      background-color 300ms ease-in-out,
+      border-color 300ms ease-in-out,
+      box-shadow 300ms ease-in-out;
 }
 
 /* :not(img)::selection {
@@ -51,35 +64,23 @@ select {
 :is(a, button, input, textarea, summary) {
    --outline-size: max(2px, 0.08em);
    --outline-style: solid;
-   --outline-color: currentColor;
+   --outline-color: var(--bs-dark);
 }
 
 :is(a, button, input, textarea, summary):focus {
-   outline: var(--outline-size) var(--outline-style) var(--outline-color);
-   outline-offset: var(--outline-offset, var(--outline-size));
+   outline: var(--outline-size) var(--outline-style) var(--outline-color) !important;
+   outline-offset: var(--outline-offset, var(--outline-size)) !important;
 }
 
 :is(a, button, input, textarea, summary):focus-visible {
-   outline: var(--outline-size) var(--outline-style) var(--outline-color);
-   outline-offset: var(--outline-offset, var(--outline-size));
+   outline: var(--outline-size) var(--outline-style) var(--outline-color) !important;
+   outline-offset: var(--outline-offset, var(--outline-size)) !important;
 }
 
 :is(a, button, input, textarea, summary):focus:not(:focus-visible) {
-   outline: none;
+   outline: none !important;
 }
 
-/* Focus customizations */
-/* examples 
-
- .large-button {
-   --outline-offset: -0.25em;
- }
- 
- input {
-   --outline-style: dashed;
- }
- 
-*/
 
 /* remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {
@@ -93,4 +94,3 @@ select {
       scroll-behavior: auto !important;
    }
 }
-
