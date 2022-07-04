@@ -1,0 +1,10 @@
+.sidenav {
+   z-index: 1;
+   width: var(--sidenav-width, 257px);
+}
+
+.sidenavHeader {
+   position: relative;
+   height: calc(var(--page-header-height) + 1px);
+   border-bottom: 1px solid var(--bs-gray-200);
+}

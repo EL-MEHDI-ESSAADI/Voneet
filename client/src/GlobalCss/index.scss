@@ -1,7 +1,19 @@
 @import "fonts", "hope-ui";
 
 
+.animate-to-out {
+   display: inline-block;
+   transition: all .4s ease;
+   transform: translateX(-100%) scale(0);
+   opacity: 0;
+}
 
+:root {
+   --page-header-height: 61px;
+   --primary-shadow-color: rgb(var(--bs-body-color-rgb), .3);
+}
+
+// layout 
 #root {
    display: flex;
 
