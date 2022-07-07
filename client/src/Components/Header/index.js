@@ -1,10 +1,10 @@
 import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 import { Logo, SidebarControleArrow } from "Components";
-import { Link } from "react-router-dom";
 import useGlobalContext from "Hooks/useGlobalContext";
 import LoginBtn from "./LoginBtn";
 import UserDropdown from "./UserDropdown";
+import styles from "./header.module.scss";
 
 function Header() {
    const { isUserLoggedin } = useGlobalContext();
@@ -12,13 +12,13 @@ function Header() {
    return (
       <Navbar bg="white" expand="sm">
          <Container fluid className="px-4">
-            <div className="d-flex d-xl-none align-items-center gap-3">
-               <SidebarControleArrow />
-               <Navbar.Brand as={Link} to="/" className="m-0">
+            <div className={`d-flex justify-content-between flex-grow-1 ${styles["header-first-row"]}`}>
+               <div className="d-flex d-xl-none align-items-center gap-3">
+                  <SidebarControleArrow />
                   <Logo />
-               </Navbar.Brand>
+               </div>
+               <Navbar.Toggle aria-controls="basic-navbar-nav" />
             </div>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                <div className="ms-auto d-flex justify-content-end pt-2 pt-sm-0">
                   {isUserLoggedin ? <UserDropdown /> : <LoginBtn />}

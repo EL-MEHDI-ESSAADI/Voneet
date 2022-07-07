@@ -1,7 +1,23 @@
 @import "fonts", "hope-ui";
 
 
+.animate-to-out {
+   display: inline-block;
+   transition: all .4s ease;
+   transform: translateX(-100%) scale(0);
+   opacity: 0;
+}
 
+:root {
+   --page-uncollapsed-header-height: 61px;
+   --primary-shadow-color: rgb(var(--bs-body-color-rgb), .3);
+   --secondary-shadow-color-1: #00000026;
+   --secondary-shadow-color-2: rgb(17 38 146 / 5%);
+   
+   --secondary-trn: all .4s ease;
+}
+
+// layout 
 #root {
    display: flex;
 

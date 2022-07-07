@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useReducer } from "react";
 import appContext from "Context/appContext";
 
-function AppProvider({ children }) {
+const defaultState = {
+   isSidenavOpen: true,
+};
 
-   return <appContext.Provider value={"cancumed it"}>{children}</appContext.Provider>;
+const reducer = (state, action) => {
+   switch (action.type) {
+      case "openCloseSidenav":
+         return { ...state, isSidenavOpen: action.makeSidenavOpen ? true : false };
+
+      default:
+         break;
+   }
+};
+
+function AppProvider({ children }) {
+   const [state, appDispatch] = useReducer(reducer, defaultState);
+
+   const openSidenav = () => appDispatch({ type: "openCloseSidenav", makeSidenavOpen: true });
+   const closeSidenav = () => appDispatch({ type: "openCloseSidenav", makeSidenavOpen: false });
+
+   return (
+      <appContext.Provider value={{ openSidenav, closeSidenav, isSidenavOpen: state.isSidenavOpen }}>
+         {children}
+      </appContext.Provider>
+   );
 }
 
 export default AppProvider;
