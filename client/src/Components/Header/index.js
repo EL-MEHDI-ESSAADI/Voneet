@@ -10,13 +10,15 @@ function Header() {
    const { isUserLoggedin } = useGlobalContext();
 
    return (
-      <Navbar bg="white" expand="sm" className={styles.header}>
+      <Navbar bg="white" expand="sm">
          <Container fluid className="px-4">
-            <div className="d-flex d-xl-none align-items-center gap-3">
-               <SidebarControleArrow />
-               <Logo />
+            <div className={`d-flex justify-content-between flex-grow-1 ${styles["header-first-row"]}`}>
+               <div className="d-flex d-xl-none align-items-center gap-3">
+                  <SidebarControleArrow />
+                  <Logo />
+               </div>
+               <Navbar.Toggle aria-controls="basic-navbar-nav" />
             </div>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                <div className="ms-auto d-flex justify-content-end pt-2 pt-sm-0">
                   {isUserLoggedin ? <UserDropdown /> : <LoginBtn />}

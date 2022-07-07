@@ -9,8 +9,12 @@
 }
 
 :root {
-   --page-header-height: 61px;
+   --page-uncollapsed-header-height: 61px;
    --primary-shadow-color: rgb(var(--bs-body-color-rgb), .3);
+   --secondary-shadow-color-1: #00000026;
+   --secondary-shadow-color-2: rgb(17 38 146 / 5%);
+   
+   --secondary-trn: all .4s ease;
 }
 
 // layout 

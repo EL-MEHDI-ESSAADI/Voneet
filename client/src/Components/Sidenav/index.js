@@ -1,15 +1,21 @@
 import React from "react";
 import { Logo, SidebarControleArrow } from "Components";
-import styles from "./styles.module.scss"
+import styles from "./styles.module.scss";
+import NavLinks from "./NavLinks";
+import useGlobalContext from "Hooks/useGlobalContext";
 
 function Sidenav() {
+   const {isSidenavOpen} = useGlobalContext();
+
+
    return (
-      <div className={`bg-white ${styles.sidenav}`}>
-         <header className={`d-flex align-items-center justify-content-between px-4 ${styles.sidenavHeader}`}> 
-            <Logo />
-            <SidebarControleArrow isItLeftArrow floatInXlScreen/>
+      <aside className={`bg-white ${styles.sidenav} ${!isSidenavOpen ? styles["sidenav--closed"] : ""}`}>
+         <header className={`d-flex align-items-center justify-content-between px-3 ${styles.sidenavHeader}`}>
+            <Logo logoTextclassName={styles['animatable-text']}/>
+            <SidebarControleArrow floatInXlScreen notFixedToRight  />
          </header>
-      </div>
+         <NavLinks isSidenavOpen={isSidenavOpen}/>
+      </aside>
    );
 }
 

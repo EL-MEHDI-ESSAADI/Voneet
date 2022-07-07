@@ -12,7 +12,7 @@
 }
 
 .arrow-icon {
-   transition: 0.3s;
+   transition: var(--secondary-trn);
 
    &--left {
       transform: rotate(-180deg);

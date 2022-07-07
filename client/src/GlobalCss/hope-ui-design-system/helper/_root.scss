@@ -1,3 +1,18 @@
 :root {
     --prefix: #{$variable-prefix};
+    @mixin custom-color-variables($color-name: 'primary',$color-value: $primary) {
+        --#{$variable-prefix}#{$color-name}: #{$color-value};
+        --#{$variable-prefix}#{$color-name}-shade-80: #{shade-color($color-value, 80%)};
+        --#{$variable-prefix}#{$color-name}-shade-60: #{shade-color($color-value, 60%)};
+        --#{$variable-prefix}#{$color-name}-shade-40: #{shade-color($color-value, 40%)};
+        --#{$variable-prefix}#{$color-name}-shade-20: #{shade-color($color-value, 20%)};
+        --#{$variable-prefix}#{$color-name}-tint-80: #{tint-color($color-value, 80%)};
+        --#{$variable-prefix}#{$color-name}-tint-60: #{tint-color($color-value, 60%)};
+        --#{$variable-prefix}#{$color-name}-tint-40: #{tint-color($color-value, 40%)};
+        --#{$variable-prefix}#{$color-name}-tint-20: #{tint-color($color-value, 20%)};
+        --#{$variable-prefix}#{$color-name}-rgb: #{to-rgb($color-value)};
+        --#{$variable-prefix}#{$color-name}-tint-88: #{tint-color($color-value, 88%)};
+    }
+
+    @include custom-color-variables('primary',$primary);
 }

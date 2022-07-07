@@ -1,10 +1,105 @@
 .sidenav {
    z-index: 1;
    width: var(--sidenav-width, 257px);
+   transition: var(--secondary-trn);
+   box-shadow: 0 0 30px 0 var(--secondary-shadow-color-2);
+
+   @media (max-width: 1200px) {
+      position: absolute;
+      left: 0;
+      top: 0;
+   }
+
+}
+
+.sidenav--closed {
+   width: var(--closed-sidenav-width, 76px);
+
+   @media (max-width: 1200px) {
+      transform: translate(-100%);
+   }
+
+   & .animatable-text {
+      font-size: 0;
+      transform: translateX(-100%) scale(0) !important;
+      opacity: 0 !important;
+   }
+
+   & .navLink {
+      gap: 0;
+      padding: 0.625rem 0.875rem;
+   }
+
+   & .navListHeader {
+      text-align: center;
+   }
+
+
+}
+
+.animatable-text {
+   transition: all .4s ease;
 }
 
 .sidenavHeader {
    position: relative;
-   height: calc(var(--page-header-height) + 1px);
+   height: calc(var(--page-uncollapsed-header-height) + 1px);
    border-bottom: 1px solid var(--bs-gray-200);
+}
+
+.navList {
+   position: relative;
+   display: grid;
+   gap: .5rem;
+   padding: .75rem 1rem;
+   margin: 0;
+
+   &--first {
+      margin-block: .5rem 1rem;
+
+      after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 10%;
+         width: 80%;
+         height: 1px;
+         background: var(--bs-gray-200);
+      }
+   }
+}
+
+.navLink {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   height: 44.16px;
+   padding: .63rem 1rem;
+   border-radius: 4px;
+   color: var(--bs-gray);
+   transition-property: color, padding, background-color;
+   transition-duration: .3s;
+   box-shadow: var(--secondary-shadow-color-1) 1.95px 1.95px 2.6px;
+
+   &:hover {
+      color: var(--bs-blue);
+      background-color: var(--bs-primary-tint-88);
+   }
+
+   &.active {
+      color: var(--bs-white);
+      background-color: var(--bs-primary);
+      box-shadow: 0px 2px 4px var(--primary-shadow-color);
+   }
+
+   svg {
+      flex-shrink: 0;
+   }
+
+}
+
+
+.navListHeader {
+   padding-inline: 1rem;
+   color: var(--bs-gray-500);
 }
