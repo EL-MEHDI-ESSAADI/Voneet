@@ -1,18 +1,21 @@
 import React from "react";
 import { navLinksStore } from "Data";
-import styles from "./styles.module.scss";
 import MyNavLink from "./MyNavLink";
+import { NavList, NavListHeader } from "./styles";
+import useGlobalContext from "Hooks/useGlobalContext";
 
-function NavLinks({ isSidenavOpen }) {
+function NavLinks() {
+   const { isSidenavOpen } = useGlobalContext();
+
    const navLinksElements = navLinksStore.map((list, index) => {
       return (
          <div key={index} className="text-capitalize">
-            {list.headerText && <h6 className={styles.navListHeader}>{isSidenavOpen ? list.headerText : "-" }</h6>}
-            <ul className={`${styles.navList} ${!index ? styles["navList--first"] : ""}`}>
+            {list.headerText && <NavListHeader>{isSidenavOpen ? list.headerText : "-"}</NavListHeader>}
+            <NavList isItTopList={!index}>
                {list.links.map((link) => (
                   <MyNavLink {...link} key={link.text} />
                ))}
-            </ul>
+            </NavList>
          </div>
       );
    });
