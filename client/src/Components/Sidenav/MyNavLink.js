@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import styles from "./styles.module.scss";
+import { ScalableText } from "Components/styles";
+import { StyledNavLink } from "./styles";
+import useGlobalContext from "Hooks/useGlobalContext";
 
 function MyNavLink({ to, Icon, text }) {
+   const { isSidenavOpen } = useGlobalContext();
+
    return (
-      <NavLink to={to} className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ""}`}>
-         <Icon size="1.25rem" />
-         <span className={`d-inline-block animatable-text ${styles["animatable-text"]}`}>{text}</span>
-      </NavLink>
+      <StyledNavLink to={to}>
+         <Icon size="1.25rem" className="flex-shrink-0" />
+         <ScalableText shrink={!isSidenavOpen}>{text}</ScalableText>
+      </StyledNavLink>
    );
 }
 
