@@ -63,9 +63,9 @@ export const SidenavHeader = styled.header.attrs({
    border-bottom: 1px solid var(--bs-gray-200);
 `;
 
-export const StyledSidenav = styled.aside`
+export const StyledSidenav = styled.aside.attrs({ "aria-label": "sidenav" })`
    z-index: 1;
-   width: var(--sidenav-width, 257px);
+   width: var(--sidenav-width);
    transition: var(--secondary-trn-1);
    background-color: var(--bs-white);
    box-shadow: 0 0 30px 0 var(--secondary-shadow-color-2);
@@ -80,7 +80,7 @@ export const StyledSidenav = styled.aside`
    ${({ closed }) => {
       if (closed)
          return css`
-            width: var(--closed-sidenav-width, 80px);
+            width: var(--closed-sidenav-width);
 
             @media (max-width: 1200px) {
                transform: translateX(-100%);

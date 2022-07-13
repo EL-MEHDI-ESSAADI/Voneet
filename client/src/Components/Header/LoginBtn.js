@@ -10,7 +10,7 @@ const StyledButton = styled(Button).attrs({className: "px-2 py-1 d-flex align-it
 function LoginBtn() {
    return (
       <StyledButton>
-         <HiOutlineLogin size="1.5rem" />
+         <HiOutlineLogin size="1.5rem" aria-hidden="true"/>
          <span className="ms-1">Login</span>
       </StyledButton>
    );
