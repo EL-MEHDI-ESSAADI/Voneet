@@ -13,7 +13,7 @@ function Sidenav() {
             <Logo shrink={!isSidenavOpen} />
             <SidebarControleArrow floatInXlScreen notFixedToRight />
          </SidenavHeader>
-         <NavLinks isSidenavOpen={isSidenavOpen} />
+         <NavLinks/>
       </StyledSidenav>
    );
 }

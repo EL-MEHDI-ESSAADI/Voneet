@@ -21,7 +21,7 @@ function Header() {
    const { isUserLoggedin } = useGlobalContext();
 
    return (
-      <Navbar bg="white" expand="sm">
+      <Navbar bg="white" expand="sm" data-testid="headerEl">
          <Container fluid className="px-4">
             <HeaderUncollapsedPart>
                <ArrowBtnAndLogoCon>

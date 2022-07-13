@@ -8,7 +8,7 @@ function MyNavLink({ to, Icon, text }) {
 
    return (
       <StyledNavLink to={to}>
-         <Icon size="1.25rem" className="flex-shrink-0" />
+         <Icon size="1.25rem" className="flex-shrink-0" aria-hidden="true"/>
          <ScalableText shrink={!isSidenavOpen}>{text}</ScalableText>
       </StyledNavLink>
    );

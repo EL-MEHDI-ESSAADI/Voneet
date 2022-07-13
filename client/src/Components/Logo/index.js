@@ -5,9 +5,9 @@ import { ScalableText } from "Components/styles";
 
 function Logo({ shrink }) {
    return (
-      <Link to="/">
+      <Link to="/" aria-label="logo">
          <LogoSymbole />
-         <ScalableText shrink={shrink} className="h3 align-middle ms-2">
+         <ScalableText shrink={shrink} className="h3 align-middle ms-2" aria-hidden="true">
             Voneet
          </ScalableText>
       </Link>

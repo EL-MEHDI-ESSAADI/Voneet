@@ -21,7 +21,7 @@ const User = React.forwardRef(({ onClick }, ref) => {
       userName: "Von_Mehdi",
    };
    return (
-      <StyledUser role="button" ref={ref} onClick={onClick}>
+      <StyledUser role="button" ref={ref} onClick={onClick} aria-label="user profile">
          <UserImg src={user.profileImage} alt="profile" />
          <div>
             <h6 className="h6 fw-normal lh-base">{user.name}</h6>
