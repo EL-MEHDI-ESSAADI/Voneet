@@ -103,3 +103,17 @@ select {
       scroll-behavior: auto !important;
    }
 }
+
+.skip-to-content {
+   --outline-offset: 0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1031;
+   background: var(--bs-white);
+   transform: translateY(-100%);
+   transition: transform 250ms ease-in;
+   &:focus-visible {
+      transform: translateY(0);
+   }
+}
