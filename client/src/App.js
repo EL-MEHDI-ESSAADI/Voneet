@@ -7,7 +7,7 @@ function App() {
       <>
          <Routes>
             <Route path="/" element={<SharedLayout />}>
-               <Route index element={<h1>Home</h1>} />
+               <Route index element={<h1 id="main">Home</h1>} />
                <Route path="*" element={<h1>Page</h1>} />
             </Route>
          </Routes>

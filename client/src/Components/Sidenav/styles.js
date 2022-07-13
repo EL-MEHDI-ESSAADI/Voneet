@@ -72,6 +72,7 @@ export const StyledSidenav = styled.aside`
 
    @media (max-width: 1200px) {
       position: absolute;
+      z-index: 1030;
       left: 0;
       top: 0;
    }
@@ -82,7 +83,8 @@ export const StyledSidenav = styled.aside`
             width: var(--closed-sidenav-width, 80px);
 
             @media (max-width: 1200px) {
-               transform: translate(-100%);
+               transform: translateX(-100%);
+               visibility: hidden;
             }
 
             ${NavListHeader} {
