@@ -3,3 +3,6 @@ export { default as Header } from "./Header";
 export { default as Logo } from "./Logo";
 export { default as SidebarControleArrow } from "./SidebarControleArrow";
 export { default as Sidenav } from "./Sidenav";
+export { default as HelloSection } from "./HelloSection";
+export { default as Features } from "./Features";
+export { default as Footer } from "./Footer";
