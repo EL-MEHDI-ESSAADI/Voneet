@@ -64,17 +64,20 @@ export const SidenavHeader = styled.header.attrs({
 `;
 
 export const StyledSidenav = styled.aside.attrs({ "aria-label": "sidenav" })`
-   z-index: 1;
+   position: fixed;
+   z-index: 1030;
+   top: 0;
+   left: 0;
+   flex-shrink: 0;
    width: var(--sidenav-width);
+   height: 100vh;
    transition: var(--secondary-trn-1);
    background-color: var(--bs-white);
    box-shadow: 0 0 30px 0 var(--secondary-shadow-color-2);
 
-   @media (max-width: 1200px) {
-      position: absolute;
-      z-index: 1030;
-      left: 0;
-      top: 0;
+   @media (min-width: 1200px) {
+      position: sticky;
+      z-index: 1020;
    }
 
    ${({ closed }) => {

@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
 import appContext from "Context/appContext";
 
+const xl = 1200;
 const defaultState = {
-   isSidenavOpen: true,
+   isSidenavOpen: window.innerWidth > xl ? true : false,
 };
 
 const reducer = (state, action) => {

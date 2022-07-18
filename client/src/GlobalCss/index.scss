@@ -1,7 +1,5 @@
 @import "fonts", "hope-ui";
 
-
-
 :root {
    --page-uncollapsed-header-height: 61px;
    --sidenav-width: 257px;
@@ -16,10 +14,7 @@
 // layout 
 #root {
    display: flex;
-
-   &>* {
-      min-height: 100vh;
-   }
+   min-height: 100vh;   
 }
 
 *,
@@ -28,6 +23,11 @@
    box-sizing: border-box;
    margin: 0;
    padding: 0;
+}
+
+
+p {
+   margin: 0;
 }
 
 ul {
@@ -39,6 +39,11 @@ button {
    border: 0;
    background-color: initial;
 }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+   color: var(--bs-primary-shade-80);
+}
+
 
 .btn {
    transition: color 300ms ease-in-out,
@@ -115,6 +120,7 @@ select {
    background: var(--bs-white);
    transform: translateY(-100%);
    transition: transform 250ms ease-in;
+
    &:focus-visible {
       transform: translateY(0);
    }
