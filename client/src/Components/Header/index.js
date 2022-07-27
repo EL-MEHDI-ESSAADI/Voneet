@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Container } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 import { Logo, SidebarControleArrow } from "Components";
 import useGlobalContext from "Hooks/useGlobalContext";
 import LoginBtn from "./LoginBtn";
@@ -18,7 +19,9 @@ const HeaderCollapsedPart = styled.div.attrs({ className: "ms-auto d-flex justif
 
 // component
 function Header() {
-   const { isUserLoggedin } = useGlobalContext();
+   const {
+      user: { isLoggedin: isUserLoggedin },
+   } = useGlobalContext();
 
    return (
       <Navbar bg="white" expand="sm">

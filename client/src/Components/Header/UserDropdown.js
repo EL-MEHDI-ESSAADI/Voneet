@@ -1,7 +1,9 @@
 import React from "react";
-import { Dropdown } from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
 import styled from "styled-components";
-// import useGlobalContext from "Hooks/useGlobalContext";
+import useGlobalContext from "Hooks/useGlobalContext";
+import axios from "axios";
+import { APP_API } from "Data";
 
 // styles
 const StyledUser = styled.div.attrs({ className: "d-flex align-items-center gap-3" })``;
@@ -14,29 +16,46 @@ const UserImg = styled.img.attrs({ className: "rounded-circle" })`
 
 // components
 const User = React.forwardRef(({ onClick }, ref) => {
-   // const { user } = useGlobalContext();
-   const user = {
-      profileImage: "https://pbs.twimg.com/profile_images/1539340885128888323/eX_JWLjS_normal.png",
-      name: "Mehdi Essaadi",
-      userName: "Von_Mehdi",
-   };
+   const {
+      user: { twitterAccountInfo: userTwitterAccountInfo },
+   } = useGlobalContext();
+
    return (
       <StyledUser role="button" ref={ref} onClick={onClick} aria-label="user profile">
-         <UserImg src={user.profileImage} alt="profile" />
+         <UserImg src={userTwitterAccountInfo.profile_image_url} alt="profile" />
          <div>
-            <h6 className="h6 fw-normal lh-base">{user.name}</h6>
-            <p className="m-0 small lh-1">{user.userName}</p>
+            <h6 className="h6 fw-normal lh-base">{userTwitterAccountInfo.name}</h6>
+            <p className="m-0 small lh-1">{userTwitterAccountInfo.username}</p>
          </div>
       </StyledUser>
    );
 });
 
 function UserDropdown() {
+   const { changeUserData, addToast } = useGlobalContext();
+
+   function logout() {
+      axios(APP_API + "/auth/logout", { withCredentials: true })
+         .then(() => {
+            changeUserData({
+               isLoggedin: false,
+               twitterAccountInfo: undefined,
+            });
+            addToast({ text: "logout successful", variant: "success" });
+         })
+         .catch((err) => {
+            // console the error, and set a toast for it
+            console.error(err);
+            addToast({ text: "Something went wrong please try to logout again", variant: "danger" });
+         });
+   }
    return (
       <Dropdown align="end">
          <Dropdown.Toggle as={User} id="dropdown-custom-components" />
          <Dropdown.Menu>
-            <Dropdown.Item as="button">Logout</Dropdown.Item>
+            <Dropdown.Item as="button" onClick={logout}>
+               Logout
+            </Dropdown.Item>
          </Dropdown.Menu>
       </Dropdown>
    );

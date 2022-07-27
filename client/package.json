@@ -17,6 +17,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.53.0",
     "styled-components": "^5.3.5",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -29,7 +30,9 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],"rules": {
+      "react-hooks/exhaustive-deps": "off"
+    }
   },
   "browserslist": {
     "production": [

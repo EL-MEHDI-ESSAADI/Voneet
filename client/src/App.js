@@ -1,13 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { SharedLayout, LandingPage } from "Pages";
+import { SharedLayout, LandingPage, AuthCallbackPage } from "Pages";
+import { AppToasts, RequestTests } from "Components";
 
 function App() {
    return (
       <>
+         {/* <RequestTests /> */}
+         <AppToasts />
          <Routes>
             <Route path="/" element={<SharedLayout />}>
                <Route index element={<LandingPage />} />
+               <Route path="/callback" element={<AuthCallbackPage />} />
                <Route path="*" element={<h1>Page</h1>} />
             </Route>
          </Routes>

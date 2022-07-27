@@ -1,19 +1,67 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import axios from "axios";
+import Button from "react-bootstrap/Button";
 import { HiOutlineLogin } from "react-icons/hi";
 import styled from "styled-components";
+import { APP_API } from "Data";
+import useGlobalContext from "Hooks/useGlobalContext";
 
-// styles 
-const StyledButton = styled(Button).attrs({className: "px-2 py-1 d-flex align-items-center"})``
+// styles
+const StyledButton = styled(Button).attrs({
+   className: "px-2 py-1 d-flex align-items-center justify-content-between",
+})`
+   width: 87.5px;
+`;
 
 // component
 function LoginBtn() {
+   const [loading, setLoading] = useState(false);
+   const { addToast } = useGlobalContext();
+
+   function handelClick() {
+      // start loading
+      setLoading(true);
+
+      axios
+         .get(APP_API + "/auth", { withCredentials: true })
+         .then(({ data }) => {
+            // remember current page
+            sessionStorage.setItem("pathBeforeAuth", window.location.pathname);
+            // open auth url
+            window.open(data.authUrl, "_self");
+         })
+         .catch((error) => {
+
+            // console the error, and set a toast for it
+            console.error(error);
+            addToast({ text: "Something went wrong please try to login again", variant: "danger" });
+            
+            // stop loading
+            setLoading(false);
+         })
+   }
+
    return (
-      <StyledButton>
-         <HiOutlineLogin size="1.5rem" aria-hidden="true"/>
-         <span className="ms-1">Login</span>
+      <StyledButton onClick={!loading ? handelClick : undefined}>
+         {loading ? (
+            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+         ) : (
+            <HiOutlineLogin size="1.5rem" aria-hidden="true" />
+         )}
+
+         <span>Login</span>
       </StyledButton>
    );
 }
 
 export default LoginBtn;
+
+/*
+   - on click on login btn it will have a spiner
+
+   - spinner and ta7eto "logging in ..."
+
+   - you succesfly loged in to with your  ..
+   - error happend, plear try to log in again
+   - last one : you will redirect to your last page in : timer
+*/
