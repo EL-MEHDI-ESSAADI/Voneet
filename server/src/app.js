@@ -59,7 +59,13 @@ app.use(function (req, res, next) {
 app.use("/auth", authRouter);
 
 app.get("/", (req, res) => {
-   res.json({message: "response for / path"});
+   res.json({ message: "response for / path" });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+   console.error(err);
+   res.status(500).json(err);
 });
 
 // Start server

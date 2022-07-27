@@ -11,7 +11,6 @@ const colorChange = keyframes`
 `;
 
 const Heading = styled.h1.attrs({ className: "display-5" })`
-   background-color: var(--bs-primary);
    background-image: linear-gradient(
       to right,
       var(--bs-pink) 20%,

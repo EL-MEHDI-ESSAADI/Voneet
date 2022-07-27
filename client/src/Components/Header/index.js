@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import { Logo, SidebarControleArrow } from "Components";
 import useGlobalContext from "Hooks/useGlobalContext";
 import LoginBtn from "./LoginBtn";
-import UserDropdown from "./UserDropdown";
+import UserDropdown, { UserSkeleton } from "./UserDropdown";
 import styled from "styled-components";
 
 // styles
@@ -34,7 +34,15 @@ function Header() {
                <Navbar.Toggle aria-controls="basic-navbar-nav" />
             </HeaderUncollapsedPart>
             <Navbar.Collapse id="basic-navbar-nav">
-               <HeaderCollapsedPart>{isUserLoggedin ? <UserDropdown /> : <LoginBtn />}</HeaderCollapsedPart>
+               <HeaderCollapsedPart>
+                  {isUserLoggedin === undefined ? (
+                     <UserSkeleton />
+                  ) : isUserLoggedin === true ? (
+                     <UserDropdown />
+                  ) : (
+                     <LoginBtn />
+                  )}
+               </HeaderCollapsedPart>
             </Navbar.Collapse>
          </Container>
       </Navbar>

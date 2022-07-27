@@ -15,9 +15,9 @@ const Div = styled.div`
 `;
 
 function RequestTests() {
-   function testServer() {
+   function simpleReq() {
       axios
-         .get(APP_API, { withCredentials: true })
+         .get(APP_API , { withCredentials: true })
          .then(({ data }) => console.log(data))
          .catch(console.error);
    }
@@ -25,8 +25,8 @@ function RequestTests() {
 
    return (
       <Div>
-         <button onClick={testServer} className="btn btn-primary">
-            send request to / router
+         <button onClick={simpleReq} className="btn btn-primary">
+            make / request
          </button>
       </Div>
    );
