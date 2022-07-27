@@ -22,7 +22,7 @@ app.use(
       resave: true,
       rolling: true,
       saveUninitialized: false, // don't save uninitialized session
-      cookie: { secure: false, maxAge: TWO_DAYS },
+      cookie: { secure: process.env.NODE_ENV == "production" ? true : false, maxAge: TWO_DAYS },
    })
 );
 

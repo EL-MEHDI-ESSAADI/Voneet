@@ -60,4 +60,4 @@ export const contactPlatforms = new Map([
    ["email", { link: "mailto:mehdiessaadion@gmail.com", Icon: MdEmail }],
 ]);
 
-export const APP_API = "http://localhost:5000";
+export const APP_API = process.env.REACT_APP_BACKEND_API;

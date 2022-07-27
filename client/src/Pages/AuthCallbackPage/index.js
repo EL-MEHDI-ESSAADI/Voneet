@@ -34,6 +34,7 @@ function AuthCallbackPage() {
          })
          .catch(({ error }) => {
             console.error(error);
+            changeUserData({ isLoggedin: false, twitterAccountInfo: null });
             addToast({ text: "Something went wrong please try to login again", variant: "danger" });
          })
          .finally(() => {
