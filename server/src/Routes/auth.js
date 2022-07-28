@@ -1,11 +1,9 @@
 import express from "express";
 import { TwitterApi } from "twitter-api-v2";
-import { appTokens, TWO_DAYS } from "../Data";
-import { asyncWrapper } from "../Helpers/utils";
-import { appOnlyClient } from "../Modules";
+import { appTokens, CALLBCK_URL, TEN_MINUTES, TWO_DAYS } from "../Data/index.js";
+import { asyncWrapper } from "../Helpers/utils.js";
+import { appOnlyClient } from "../Modules/index.js";
 
-const CALLBCK_URL = "http://localhost:3000/callback";
-const TEN_MINUTES = 1000 * 60 * 10;
 const router = express.Router();
 
 // route for send auth link to the client
@@ -71,20 +69,23 @@ router.get(
 );
 
 // route for check if client loggedin
-router.get("/check", asyncWrapper(async (req, res) => {
-   const { userTokens } = req.session;
+router.get(
+   "/check",
+   asyncWrapper(async (req, res) => {
+      const { userTokens } = req.session;
 
-   // if userTokens is undefined, the user isn't loggedin
-   if (!userTokens) return res.json({ isUserLoggedin: false, twitterAccountInfo: null });
+      // if userTokens is undefined, the user isn't loggedin
+      if (!userTokens) return res.json({ isUserLoggedin: false, twitterAccountInfo: null });
 
-   const client = new TwitterApi({
-      ...appTokens,
-      ...userTokens,
-   });
+      const client = new TwitterApi({
+         ...appTokens,
+         ...userTokens,
+      });
 
-   const userInfo = await client.v2.me({ "user.fields": ["profile_image_url"] });
-   res.json({ isUserLoggedin: true, twitterAccountInfo: userInfo.data });
-}));
+      const userInfo = await client.v2.me({ "user.fields": ["profile_image_url"] });
+      res.json({ isUserLoggedin: true, twitterAccountInfo: userInfo.data });
+   })
+);
 
 // route for logout the client
 router.get("/logout", (req, res) => {
