@@ -4,7 +4,7 @@ import session from "express-session";
 import cors from "cors";
 import dotenv from "dotenv";
 import { authRouter } from "./Routes/index.js";
-import { TWO_DAYS, frontEndSiteUrl } from "./Data/index.js";
+import { TWO_DAYS, FRONTEND_URL } from "./Data/index.js";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -12,7 +12,6 @@ const app = express();
 dotenv.config();
 
 // Configure session - needed to store access token and secret
-// app.set("trust proxy", 1);
 app.use(
    session({
       secret: process.env.sessionSecret,
@@ -24,11 +23,10 @@ app.use(
       rolling: true,
       saveUninitialized: false, // don't save uninitialized session
       cookie: {
-         secure: process.env.NODE_ENV == "production" ? true : false, // this is new
+         secure: process.env.NODE_ENV == "production" ? true : false,
          maxAge: TWO_DAYS,
-         // sameSite: "none", // this is new
       },
-      // proxy: true // this is new
+      proxy: true
    })
 );
 
@@ -49,7 +47,7 @@ app.use(express.json());
 // configure cors and header
 app.use(
    cors({
-      origin: frontEndSiteUrl,
+      origin: FRONTEND_URL,
       optionsSuccessStatus: 200,
       credentials: true,
    })
