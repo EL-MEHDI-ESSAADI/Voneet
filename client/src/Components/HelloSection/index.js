@@ -14,6 +14,7 @@ const Header = styled.header`
    height: 145px;
    padding: 1.5rem 2.25rem 0rem;
    border-radius: 0 0 1rem 1rem;
+   background-color: var(--bs-primary-shade-20);
    background-image: url(${blueCirclesImg});
    background-size: 120% 120%;
    animation: ${moveBg} 70s linear alternate infinite;

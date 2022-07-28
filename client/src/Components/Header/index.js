@@ -1,9 +1,10 @@
 import React from "react";
-import { Navbar, Container } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 import { Logo, SidebarControleArrow } from "Components";
 import useGlobalContext from "Hooks/useGlobalContext";
 import LoginBtn from "./LoginBtn";
-import UserDropdown from "./UserDropdown";
+import UserDropdown, { UserSkeleton } from "./UserDropdown";
 import styled from "styled-components";
 
 // styles
@@ -18,7 +19,9 @@ const HeaderCollapsedPart = styled.div.attrs({ className: "ms-auto d-flex justif
 
 // component
 function Header() {
-   const { isUserLoggedin } = useGlobalContext();
+   const {
+      user: { isLoggedin: isUserLoggedin },
+   } = useGlobalContext();
 
    return (
       <Navbar bg="white" expand="sm">
@@ -31,7 +34,15 @@ function Header() {
                <Navbar.Toggle aria-controls="basic-navbar-nav" />
             </HeaderUncollapsedPart>
             <Navbar.Collapse id="basic-navbar-nav">
-               <HeaderCollapsedPart>{isUserLoggedin ? <UserDropdown /> : <LoginBtn />}</HeaderCollapsedPart>
+               <HeaderCollapsedPart>
+                  {isUserLoggedin === undefined ? (
+                     <UserSkeleton />
+                  ) : isUserLoggedin === true ? (
+                     <UserDropdown />
+                  ) : (
+                     <LoginBtn />
+                  )}
+               </HeaderCollapsedPart>
             </Navbar.Collapse>
          </Container>
       </Navbar>

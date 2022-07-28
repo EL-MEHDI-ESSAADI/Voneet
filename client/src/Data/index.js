@@ -59,3 +59,5 @@ export const contactPlatforms = new Map([
    ["github", { link: "https://github.com/EL-MEHDI-ESSAADI", Icon: AiFillGithub }],
    ["email", { link: "mailto:mehdiessaadion@gmail.com", Icon: MdEmail }],
 ]);
+
+export const APP_API = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:5000" ;
