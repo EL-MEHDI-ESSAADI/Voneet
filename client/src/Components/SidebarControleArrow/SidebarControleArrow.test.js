@@ -18,13 +18,16 @@ describe("sidenav toggle btn", () => {
       const sidenavEl = screen.getByLabelText("sidenav");
       const [toggleBtn] = screen.getAllByLabelText("toggle sidenav");
 
+      // by default window size is 1024 (less than xl that is 1200), so sidenav should initially be closed
+
+      // assertion: sidenav is closed
+      expect(sidenavEl).toHaveStyleRule("width", "var(--closed-sidenav-width)");
+      userEvent.click(toggleBtn);
       // assertion: sidenav is open
       expect(sidenavEl).toHaveStyleRule("width", "var(--sidenav-width)");
       userEvent.click(toggleBtn);
       // assertion: sidenav is closed
       expect(sidenavEl).toHaveStyleRule("width", "var(--closed-sidenav-width)");
       userEvent.click(toggleBtn);
-      // assertion: sidenav is open
-      expect(sidenavEl).toHaveStyleRule("width", "var(--sidenav-width)");
    });
 });
