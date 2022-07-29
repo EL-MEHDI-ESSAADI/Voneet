@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "voneet",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,7 +32,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "react-hooks/exhaustive-deps": "off"
+      "react-hooks/exhaustive-deps": "off",
+      "jest/no-mocks-import": "off"
     }
   },
   "browserslist": {
@@ -46,8 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@helloample/netlify-plugin-replace": "^1.1.4"
   }
 }

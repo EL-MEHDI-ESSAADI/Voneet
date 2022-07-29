@@ -4,10 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect } from "react";
 import axios from "axios";
 import { APP_API } from "Data";
+import { useLocation } from "react-router-dom";
 
 const xl = 1200;
 const defaultState = {
-   isSidenavOpen: window.innerWidth > xl ? true : false,
+   isSidenavOpen: window.innerWidth >= xl ? true : false,
    toasts: new Map(),
    user: {
       isLoggedin: undefined,
@@ -34,7 +35,7 @@ const reducer = (state, action) => {
    }
 };
 
-function AppProvider({ children }) {
+function AppProvider({ children, currentPathname }) {
    const [state, appDispatch] = useReducer(reducer, defaultState);
 
    const openSidenav = () => appDispatch({ type: "openCloseSidenav", makeSidenavOpen: true });
@@ -48,7 +49,7 @@ function AppProvider({ children }) {
          if the page path is /callback that mean the user is in login process, so we shouldn't check if he's
          allready loggedin or no 
       */
-      if (window.location.pathname === "/callback") return;
+      if ((currentPathname || window.location.pathname) === "/callback") return;
       // check if the user is allready loggedin
       axios
          .get(APP_API + "/auth/check", { withCredentials: true })
@@ -74,4 +75,14 @@ function AppProvider({ children }) {
    );
 }
 
-export default AppProvider;
+/*
+   bacause window.location not working properly in tests I should use "uselocation" but I didn't want to
+   use it in production because it will cause unnecessary renders
+*/
+function AppProviderTestVersion({ children }) {
+   const location = useLocation();
+
+   return <AppProvider currentPathname={location.pathname}>{children}</AppProvider>;
+}
+
+export default process.env.NODE_ENV === "test" ? AppProviderTestVersion : AppProvider;
