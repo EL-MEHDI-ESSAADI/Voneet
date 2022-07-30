@@ -10,7 +10,6 @@ const StyledAuthCallbackPage = styled.section`
    display: grid;
    justify-items: center;
    align-content: center;
-   height: calc(100vh - var(--page-uncollapsed-header-height));
 `;
 
 function AuthCallbackPage() {

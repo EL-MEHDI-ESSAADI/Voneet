@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PageSection = styled.section`
-   width: calc(100% - 3rem);
+   width: calc(100% - 1.5rem);
    padding: 1.5rem 1rem;
    margin-inline: auto;
    margin-bottom: 2.5rem;
@@ -14,6 +14,7 @@ const PageSection = styled.section`
    }
 
    @media (min-width: 576px) {
+      width: calc(100% - 3rem);
       padding: 1.5rem;
    }
    @media (min-width: 768px) {

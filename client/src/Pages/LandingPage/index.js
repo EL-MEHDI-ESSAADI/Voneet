@@ -1,5 +1,5 @@
 import React from "react";
-import { Features, Footer, HelloSection } from "Components";
+import { Features, PageWrapper } from "Components";
 import { PageSection } from "Components/styles";
 import styled, { keyframes } from "styled-components";
 
@@ -34,17 +34,15 @@ const Paragraph = styled.p`
 // component
 function LandingPage() {
    return (
-      <main id="main">
-         <HelloSection />
+      <PageWrapper>
          <PageSection>
             <Heading>WELCOME TO VONEET</Heading>
             <Paragraph className="text-center mt-3">
                An twitter tool that bring to you some new awesome twitter freatures
             </Paragraph>
-            <Features/>
+            <Features />
          </PageSection>
-         <Footer />
-      </main>
+      </PageWrapper>
    );
 }
 
