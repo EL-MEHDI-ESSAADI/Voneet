@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import appContext from "Context/appContext";
+import { appContext } from "Contexts";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect } from "react";
 import axios from "axios";

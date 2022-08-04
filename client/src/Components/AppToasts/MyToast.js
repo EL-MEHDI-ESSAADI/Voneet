@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Toast from "react-bootstrap/Toast";
 import styled, { keyframes } from "styled-components";
 
-const TIME_TO_REMOVE_TOAST = 3500;
+const TIME_TO_REMOVE_TOAST = 4000;
 
 // styles
 const CloseBtn = styled.button.attrs({ className: "btn-close p-3" })`

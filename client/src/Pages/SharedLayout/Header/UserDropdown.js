@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styled, { keyframes } from "styled-components";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
 import axios from "axios";
 import { APP_API } from "Data";
+import { getCatchErrorFunction } from "Helpers/utils";
 
 // styles
 const StyledUser = styled.div.attrs({ className: "d-flex align-items-center gap-3" })``;
@@ -68,7 +69,8 @@ function UserDropdown() {
    function logout() {
       setIsLoggingOut(true);
 
-      axios(APP_API + "/auth/logout", { withCredentials: true })
+      axios
+         .delete(APP_API + "/auth/logout", { withCredentials: true })
          .then(() => {
             changeUserData({
                isLoggedin: false,
@@ -76,16 +78,12 @@ function UserDropdown() {
             });
             addToast({ text: "logout successful", variant: "success" });
          })
-         .catch((err) => {
-            // console the error, and set a toast for it
-            console.error(err);
-            addToast({ text: "Something went wrong please try to logout again", variant: "danger" });
-         })
+         .catch(getCatchErrorFunction("", "Fail to login because ", addToast))
          .finally(() => setIsLoggingOut(false));
    }
    return (
       <Dropdown align="end">
-         <Dropdown.Toggle as={User} id="dropdown-custom-components" />
+         <Dropdown.Toggle as={User} id="user-account-options" />
          <Dropdown.Menu>
             <Dropdown.Item as="button" onClick={logout} disabled={isLoggingOut}>
                {isLoggingOut && (

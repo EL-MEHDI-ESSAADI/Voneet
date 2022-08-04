@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Logo, SidebarControleArrow } from "Components";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
 import LoginBtn from "./LoginBtn";
 import UserDropdown, { UserSkeleton } from "./UserDropdown";
 import styled from "styled-components";

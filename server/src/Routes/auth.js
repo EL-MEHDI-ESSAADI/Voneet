@@ -24,22 +24,22 @@ router.get(
 );
 
 // route for read data from Twitter callback, and authenticate the client
-router.get(
+router.post(
    "/callback",
    asyncWrapper(async (req, res) => {
       // invalid request
-      if (!req.query.oauth_token || !req.query.oauth_verifier)
-         return res.status(400).json({ error: "Bad request, or user denied application access" });
+      if (!req.body.oauth_token || !req.body.oauth_verifier)
+         return res.status(400).json({ message: "you didn't allow the application access" });
 
-      const queriedAccessToken = req.query.oauth_token;
-      const verifier = req.query.oauth_verifier;
-      const savedAccessToken = req.session.tempUserTokens.accessToken;
-      const savedAccessSecret = req.session.tempUserTokens.accessSecret;
+      const queriedAccessToken = req.body.oauth_token;
+      const verifier = req.body.oauth_verifier;
+      const savedAccessToken = req.session.tempUserTokens ? req.session.tempUserTokens.accessToken : undefined;
+      const savedAccessSecret = req.session.tempUserTokens ? req.session.tempUserTokens.accessSecret : undefined;
 
       // invalid savedAccessToken or savedAccessSecret
       if (!savedAccessToken || !savedAccessSecret || queriedAccessToken !== savedAccessToken)
          return res.status(400).json({
-            error: "OAuth token is not known or invalid. Your request may have expire. Please renew the auth process.",
+            message: "your request may have expire. Please renew the auth process.",
          });
 
       // build temp client
@@ -88,7 +88,7 @@ router.get(
 );
 
 // route for logout the client
-router.get("/logout", (req, res) => {
+router.delete("/logout", (req, res) => {
    req.session.destroy((error) => {
       if (error) {
          res.status(400).json({ error });

@@ -1,6 +1,6 @@
 import React from "react";
 import ToastContainer from "react-bootstrap/ToastContainer";
-import useGlobalContext from "Hooks/useGlobalContext";
+import {useGlobalContext} from "Hooks";
 import MyToast from "./MyToast";
 
 function AppToasts() {
