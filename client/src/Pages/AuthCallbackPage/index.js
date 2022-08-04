@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { APP_API } from "Data";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
+import { getCatchErrorFunction } from "Helpers/utils";
 
 // styles
 const StyledAuthCallbackPage = styled.section`
@@ -20,22 +21,23 @@ function AuthCallbackPage() {
       const pageHrefParamas = new URLSearchParams(window.location.search);
 
       axios
-         .get(APP_API + "/auth/callback", {
-            withCredentials: true,
-            params: {
+         .post(
+            APP_API + "/auth/callback",
+            {
                oauth_token: pageHrefParamas.get("oauth_token"),
                oauth_verifier: pageHrefParamas.get("oauth_verifier"),
             },
-         })
+            { withCredentials: true }
+         )
          .then((response) => {
             changeUserData({ isLoggedin: true, twitterAccountInfo: response.data });
             addToast({ text: "Login successful", variant: "success" });
          })
-         .catch(({ error }) => {
-            console.error(error);
-            changeUserData({ isLoggedin: false, twitterAccountInfo: null });
-            addToast({ text: "Something went wrong please try to login again", variant: "danger" });
-         })
+         .catch(
+            getCatchErrorFunction("", "Fail to login because ", addToast, () =>
+               changeUserData({ isLoggedin: false, twitterAccountInfo: null })
+            )
+         )
          .finally(() => {
             navigate(sessionStorage.getItem("pathBeforeAuth") || "/");
          });

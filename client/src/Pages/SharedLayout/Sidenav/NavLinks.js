@@ -2,7 +2,7 @@ import React from "react";
 import { navLinksStore } from "Data";
 import MyNavLink from "./MyNavLink";
 import { NavList, NavListHeader } from "./styles";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
 
 function NavLinks() {
    const { isSidenavOpen } = useGlobalContext();

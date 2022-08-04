@@ -3,8 +3,10 @@ import MongoStore from "connect-mongo";
 import session from "express-session";
 import cors from "cors";
 import dotenv from "dotenv";
-import { authRouter } from "./Routes/index.js";
+import { authRouter, welcomeMessagesRouter } from "./Routes/index.js";
 import { TWO_DAYS, FRONTEND_URL } from "./Data/index.js";
+import { ApiRequestError, ApiResponseError, TwitterApi } from "twitter-api-v2";
+import { asyncWrapper } from "./Helpers/utils.js";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -26,7 +28,7 @@ app.use(
          secure: process.env.NODE_ENV == "production" ? true : false,
          maxAge: TWO_DAYS,
       },
-      proxy: true
+      proxy: true,
    })
 );
 
@@ -61,6 +63,7 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use("/auth", authRouter);
+app.use("/welcomeMessages", welcomeMessagesRouter);
 
 app.get("/", (req, res) => {
    res.json({ message: "response for / path" });
@@ -69,7 +72,20 @@ app.get("/", (req, res) => {
 // Error handler
 app.use((err, req, res, next) => {
    console.error(err);
-   res.status(500).json(err);
+
+   // ratelimit error
+   if (err.rateLimitError) {
+      res.status(429).json(err.rateLimit);
+      return;
+   }
+   // user tokens error
+   if (err.isAuthError && err.errors[0].code === 89) {
+      res.status(401).json({ message: "you denied the application access, please logout and login again" });
+      return;
+   }
+
+   // server error
+   res.status(500).json({ message: "something went wrong in the server" });
 });
 
 // Start server

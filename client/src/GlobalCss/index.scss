@@ -83,17 +83,17 @@ select {
    --outline-color: var(--bs-dark);
 }
 
-:is(a, button, input, textarea, summary):focus {
+:is(a, button, summary, input[type="checkbox"]):focus {
    outline: var(--outline-size) var(--outline-style) var(--outline-color) !important;
    outline-offset: var(--outline-offset, var(--outline-size)) !important;
 }
 
-:is(a, button, input, textarea, summary):focus-visible {
+:is(a, button, summary, input[type="checkbox"]):focus-visible {
    outline: var(--outline-size) var(--outline-style) var(--outline-color) !important;
    outline-offset: var(--outline-offset, var(--outline-size)) !important;
 }
 
-:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+:is(a, button, summary, input[type="checkbox"]):focus:not(:focus-visible) {
    outline: none !important;
 }
 

@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import { HiOutlineLogin } from "react-icons/hi";
 import styled from "styled-components";
 import { APP_API } from "Data";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
+import { getCatchErrorFunction } from "Helpers/utils";
 
 // styles
 const StyledButton = styled(Button).attrs({
@@ -30,15 +31,33 @@ function LoginBtn() {
             // open auth url
             window.open(data.authUrl, "_self");
          })
+         .catch(getCatchErrorFunction("", "Fail to login because ", addToast, () => setLoading(false)))
          .catch((error) => {
+            let cause = "something went wrong in the app please try to login again";
 
-            // console the error, and set a toast for it
             console.error(error);
-            addToast({ text: "Something went wrong please try to login again", variant: "danger" });
-            
+
+            if (error.response && error.response.data) {
+               // semething went wroung on the server
+               if (error.response.status === 500) cause = error.response.data.message;
+            } else if (error.request) {
+               // server not responding
+               cause = "the server not responding";
+            }
+            addToast({ text: "You can't login because " + cause, variant: "danger" });
+
             // stop loading
             setLoading(false);
+         });
+      axios
+         .get(APP_API + "/auth", { withCredentials: true })
+         .then(({ data }) => {
+            // remember current page
+            sessionStorage.setItem("pathBeforeAuth", window.location.pathname);
+            // open auth url
+            window.open(data.authUrl, "_self");
          })
+         .catch(getCatchErrorFunction("", "Fail to login because ", addToast, () => setLoading(false)));
    }
 
    return (

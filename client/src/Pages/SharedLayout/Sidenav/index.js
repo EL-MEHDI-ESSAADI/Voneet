@@ -1,7 +1,7 @@
 import React from "react";
 import { Logo, SidebarControleArrow } from "Components";
 import NavLinks from "./NavLinks";
-import useGlobalContext from "Hooks/useGlobalContext";
+import { useGlobalContext } from "Hooks";
 import { SidenavHeader, StyledSidenav } from "./styles";
 
 function Sidenav() {
@@ -13,7 +13,7 @@ function Sidenav() {
             <Logo shrink={!isSidenavOpen} />
             <SidebarControleArrow floatInXlScreen notFixedToRight />
          </SidenavHeader>
-         <NavLinks/>
+         <NavLinks />
       </StyledSidenav>
    );
 }

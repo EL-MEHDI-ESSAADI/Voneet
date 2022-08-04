@@ -1,7 +1,7 @@
 import React from "react";
 import { ScalableText } from "Components/styles";
 import { StyledNavLink } from "./styles";
-import useGlobalContext from "Hooks/useGlobalContext";
+import {useGlobalContext} from "Hooks";
 
 function MyNavLink({ path, Icon, name }) {
    const { isSidenavOpen, closeSidenav } = useGlobalContext();

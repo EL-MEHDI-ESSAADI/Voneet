@@ -1,5 +1,6 @@
 import React from "react";
-import { Features, PageWrapper } from "Components";
+import { PageWrapper } from "Components";
+import Features from "./Features";
 import { PageSection } from "Components/styles";
 import styled, { keyframes } from "styled-components";
 

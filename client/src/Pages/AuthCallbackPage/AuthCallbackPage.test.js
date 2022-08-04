@@ -29,8 +29,6 @@ describe("AuthcallbackPage", () => {
       expect(successMessageEl).toBeInTheDocument();
       // assersion: user displayed
       expect(user).toBeInTheDocument();
-      // assersion: skeleton not displayed
-      expect(user).toHaveTextContent(/EL MEHDI ESSAADI/i);
    });
 
    test("should display fail message and login btn", async () => {
