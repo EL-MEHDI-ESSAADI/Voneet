@@ -2,6 +2,7 @@ import { BiMessageDetail } from "react-icons/bi";
 import { ImHome3 } from "react-icons/im";
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import { RiMic2Line } from "react-icons/ri";
 
 export const featuresStore = [
    {
@@ -14,8 +15,8 @@ export const featuresStore = [
    },
    {
       name: "Spaces search",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, recusandae.",
-      Icon: BiMessageDetail,
+      description: "This feautre let you find your desired spaces by a halpful search optoins.",
+      Icon: RiMic2Line,
       path: "/spacesSearch",
       id: 2,
    },
@@ -60,4 +61,7 @@ export const contactPlatforms = new Map([
    ["email", { link: "mailto:mehdiessaadion@gmail.com", Icon: MdEmail }],
 ]);
 
-export const APP_API = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:5000" ;
+export const APP_API = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:5000";
+
+export const TWITTER_SPACE_BASE_LINK = "https://twitter.com/i/spaces/"
+export const TWITTER_PROFILE_BASE_LINK = "https://twitter.com/"

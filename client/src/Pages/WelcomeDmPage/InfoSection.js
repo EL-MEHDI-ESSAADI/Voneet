@@ -1,5 +1,5 @@
 import { PageSection } from "Components/styles";
-import SectionHeader from "./SectionHeader";
+import { SectionHeader } from "Components";
 
 function InfoSection({ openDemo }) {
    return (
@@ -22,9 +22,9 @@ function InfoSection({ openDemo }) {
          </ul>
          <p className="mt-2">
             <strong>Note: </strong>
-            You can add any number of welcome messages, but just one can be active and in order your active
-            welcome message to work you should allow message requests from everyone in your twitter account, you
-            can do that by going to your{" "}
+            You can add any number of welcome messages, but just one can be active and in order your active welcome
+            message to work you should allow message requests from everyone in your twitter account, you can do
+            that by going to your{" "}
             <strong>
                twitter account {">"} settings and privacy {">"} privacy and safety {">"} direct messages
             </strong>
