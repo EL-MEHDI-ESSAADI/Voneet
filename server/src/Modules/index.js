@@ -1,1 +1,1 @@
-export { default as appOnlyClient } from "./appOnlyClient.js"
+export { default as appOnlyClient, appOnlyClientAuth2 } from "./appOnlyClient.js";

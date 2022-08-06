@@ -3,7 +3,7 @@ import MongoStore from "connect-mongo";
 import session from "express-session";
 import cors from "cors";
 import dotenv from "dotenv";
-import { authRouter, welcomeMessagesRouter } from "./Routes/index.js";
+import { authRouter, spacesRouter, welcomeMessagesRouter } from "./Routes/index.js";
 import { TWO_DAYS, FRONTEND_URL } from "./Data/index.js";
 import { ApiRequestError, ApiResponseError, TwitterApi } from "twitter-api-v2";
 import { asyncWrapper } from "./Helpers/utils.js";
@@ -64,6 +64,7 @@ app.use(function (req, res, next) {
 // Routes
 app.use("/auth", authRouter);
 app.use("/welcomeMessages", welcomeMessagesRouter);
+app.use("/spaces", spacesRouter);
 
 app.get("/", (req, res) => {
    res.json({ message: "response for / path" });

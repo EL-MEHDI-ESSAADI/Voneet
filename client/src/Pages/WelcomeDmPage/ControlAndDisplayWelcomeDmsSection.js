@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { PageSection } from "Components/styles";
+import { SectionHeader } from "Components";
 import { APP_API } from "Data";
 import axios from "axios";
-import SectionHeader from "./SectionHeader";
 import AddWelcomeDmForm from "./AddWelcomeDmForm";
 import WelcomeDms from "./WelcomeDms";
 import { useGlobalContext } from "Hooks";

@@ -1,8 +1,7 @@
 import express from "express";
-import { EDirectMessageEventTypeV1, TwitterApi } from "twitter-api-v2";
-import { appTokens, CALLBCK_URL, TEN_MINUTES, TWO_DAYS } from "../Data/index.js";
+import { TwitterApi } from "twitter-api-v2";
+import { appTokens } from "../Data/index.js";
 import { asyncWrapper } from "../Helpers/utils.js";
-import { appOnlyClient } from "../Modules/index.js";
 
 const router = express.Router();
 
