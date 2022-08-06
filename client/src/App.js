@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { SharedLayout, LandingPage, AuthCallbackPage, WelcomeDmPage, SpacesSearchPage } from "Pages";
-import { AppToasts, RequestTests } from "Components";
+import { SharedLayout, LandingPage, AuthCallbackPage, WelcomeDmPage, SpacesSearchPage, BackToHomePage } from "Pages";
+import { AppToasts } from "Components";
 
 function App() {
    return (
       <>
-         {/* <RequestTests /> */}
          <AppToasts />
          <Routes>
             <Route path="/" element={<SharedLayout />}>
@@ -14,7 +13,7 @@ function App() {
                <Route path="/callback" element={<AuthCallbackPage />} />
                <Route path="/welcomeMessage" element={<WelcomeDmPage />} />
                <Route path="/spacesSearch" element={<SpacesSearchPage />} />
-               <Route path="*" element={<h1>Page</h1>} />
+               <Route path="*" element={<BackToHomePage />} />
             </Route>
          </Routes>
       </>

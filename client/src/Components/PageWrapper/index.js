@@ -1,4 +1,5 @@
 import { HelloSection, Footer } from "Components";
+import React from "react";
 import styled from "styled-components";
 
 const Main = styled.main`
@@ -6,11 +7,11 @@ const Main = styled.main`
    grid-template-rows: min-content 1fr min-content;
 `;
 
-function PageWrapper({ children }) {
+function PageWrapper({ children, MainContentWrapper }) {
    return (
       <Main id="main">
          <HelloSection />
-         <div>{children}</div>
+         {React.createElement(MainContentWrapper || "section", null, children)}
          <Footer />
       </Main>
    );
