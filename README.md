@@ -10,7 +10,7 @@
 <h3 align="center">Voneet</h3>
 
   <p align="center">
-    An twitter tool that bring some new awesome twitter freatures
+    An twitter tool that bring some new twitter freatures
     <br />
     <a href="https://voneet.netlify.app/" target="_blank"><strong>View Demo »</strong></a>
     <br />
@@ -29,13 +29,6 @@
     </li>
     <li>
       <a href="#what-i-have-learned">What I have learned</a>
-      <ul>
-        <li><a href="#js-modules">Js modules</a></li>
-        <li><a href="#css-bem-methodology">Css bem methodology</a></li>
-        <li><a href="#accessibility">Accessibility</a></li>
-        <li><a href="#audio-player">Audio player</a></li>
-        <li><a href="#npm">NPM</a></li>
-      </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -46,13 +39,15 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- ![Voneet app Screen Shot][app-screenshot] -->
+![Voneet app Screen Shot][app-demo]
+
 
 I was working on my portfolio projects, and I did want a project
 that has a value, in this time I was interesting on twitter
 and creating content there,
 so it came to me an idea to build a twitter tool that
-bring some new twitter features like spaces search..
+bring some new twitter features like spaces search.. <br/>
 I had to learn the basics of backend with express and mongodb to build the project, I succeeded on that, and here is the result,
 hope you find the app useful.
 
@@ -101,4 +96,5 @@ hope you find the app useful.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[product-screenshot]: readmeImages/screenshot.jpg
+[app-screenshot]: readmeImages/appScreenShot.png
+[app-demo]: readmeImages/appDemo.gif
