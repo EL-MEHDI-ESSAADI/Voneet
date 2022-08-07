@@ -5,8 +5,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { authRouter, spacesRouter, welcomeMessagesRouter } from "./Routes/index.js";
 import { TWO_DAYS, FRONTEND_URL } from "./Data/index.js";
-import { ApiRequestError, ApiResponseError, TwitterApi } from "twitter-api-v2";
-import { asyncWrapper } from "./Helpers/utils.js";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -80,7 +78,7 @@ app.use((err, req, res, next) => {
       return;
    }
    // user tokens error
-   if (err.isAuthError && err.errors[0].code === 89) {
+   if (err.isAuthError && err.errors && err.errors[0].code === 89) {
       res.status(401).json({ message: "you denied the application access, please logout and login again" });
       return;
    }

@@ -15,7 +15,7 @@
 // layout 
 #root {
    display: flex;
-   min-height: 100vh;   
+   min-height: 100vh;
 }
 
 *,
@@ -41,7 +41,18 @@ button {
    background-color: initial;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
    color: var(--bs-primary-shade-80);
 }
 
@@ -53,10 +64,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
       box-shadow 300ms ease-in-out;
 }
 
-/* :not(img)::selection {
-   background-color: ;
-   color: ;
-} */
+:not(img)::selection {
+   background-color: var(--bs-primary);
+   color: var(--bs-white);
+}
 
 img::selection {
    background-color: transparent;

@@ -25,7 +25,7 @@ function SearchForm({ setSpacesData }) {
 
       // validation
       if (isLoading) return;
-      if (!formData.query || !formData.state) return;
+      if (!formData.query.trim() || !formData.state) return;
 
       // get and add spaces
       getAndAddSpaces(formData);

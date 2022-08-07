@@ -13,7 +13,7 @@ function NavLinks() {
             {list.headerText && <NavListHeader>{isSidenavOpen ? list.headerText : "-"}</NavListHeader>}
             <NavList isItTopList={!index}>
                {list.links.map((link) => (
-                  <MyNavLink {...link} key={link.id} />
+                  <li key={link.id} ><MyNavLink {...link} /></li>
                ))}
             </NavList>
          </div>

@@ -73,7 +73,7 @@ function ControlAndDisplayWelcomeDmsSection() {
                ) : welcomeDmsList.length ? (
                   <WelcomeDms welcomeDmsList={welcomeDmsList} />
                ) : (
-                  <div>You don't have any welcome messages.</div>
+                  <div className="text-center text-sm-start">You don't have any welcome messages.</div>
                )}
             </PageSection>
          )}

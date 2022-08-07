@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { APP_API } from "Data";
 import { useGlobalContext } from "Hooks";
 import { getCatchErrorFunction } from "Helpers/utils";
+import { PageWrapper } from "../../Components";
 
 // styles
 const StyledAuthCallbackPage = styled.section`
@@ -44,12 +45,12 @@ function AuthCallbackPage() {
    }, []);
 
    return (
-      <StyledAuthCallbackPage>
+      <PageWrapper MainContentWrapper={StyledAuthCallbackPage}>
          <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
          </div>
          <h5 className="h5 mt-3">Logging in</h5>
-      </StyledAuthCallbackPage>
+      </PageWrapper>
    );
 }
 

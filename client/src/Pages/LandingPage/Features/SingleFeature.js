@@ -23,7 +23,7 @@ const StyledFeature = styled(Link)`
 function SingleFeature({ name, description, path, id }) {
    return (
       <StyledFeature to={path} id={id}>
-         <h4 className="h4 mb-1 text-capitalize">{name}</h4>
+         <h2 className="h4 mb-1 text-capitalize">{name}</h2>
          <p>{description}</p>
       </StyledFeature>
    );
