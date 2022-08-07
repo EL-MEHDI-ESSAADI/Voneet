@@ -32,23 +32,6 @@ function LoginBtn() {
             window.open(data.authUrl, "_self");
          })
          .catch(getCatchErrorFunction("", "Fail to login because ", addToast, () => setLoading(false)))
-         .catch((error) => {
-            let cause = "something went wrong in the app please try to login again";
-
-            console.error(error);
-
-            if (error.response && error.response.data) {
-               // semething went wroung on the server
-               if (error.response.status === 500) cause = error.response.data.message;
-            } else if (error.request) {
-               // server not responding
-               cause = "the server not responding";
-            }
-            addToast({ text: "You can't login because " + cause, variant: "danger" });
-
-            // stop loading
-            setLoading(false);
-         });
       axios
          .get(APP_API + "/auth", { withCredentials: true })
          .then(({ data }) => {
