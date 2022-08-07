@@ -31,15 +31,6 @@ function LoginBtn() {
             // open auth url
             window.open(data.authUrl, "_self");
          })
-         .catch(getCatchErrorFunction("", "Fail to login because ", addToast, () => setLoading(false)))
-      axios
-         .get(APP_API + "/auth", { withCredentials: true })
-         .then(({ data }) => {
-            // remember current page
-            sessionStorage.setItem("pathBeforeAuth", window.location.pathname);
-            // open auth url
-            window.open(data.authUrl, "_self");
-         })
          .catch(getCatchErrorFunction("", "Fail to login because ", addToast, () => setLoading(false)));
    }
 
