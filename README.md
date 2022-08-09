@@ -10,7 +10,7 @@
 <h3 align="center">Voneet</h3>
 
   <p align="center">
-    An twitter tool that bring some new twitter freatures
+    A twitter tool that brings some new twitter freatures
     <br />
     <a href="https://voneet.netlify.app/" target="_blank"><strong>View Demo »</strong></a>
     <br />
@@ -24,11 +24,16 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#what-it-does">What it does</a></li>
+        <li><a href="#challenges-i-ran-into">Challenges I ran into</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
       <a href="#what-i-have-learned">What I have learned</a>
+    </li>
+    <li>
+      <a href="#whats-next-for-voneet">What's next for Voneet</a>
     </li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -40,27 +45,39 @@
 ## About The Project
 
 <!-- ![Voneet app Screen Shot][app-screenshot] -->
+
 ![Voneet app Screen Shot][app-demo]
+Voneet is a Twitter tool that has some new twitter features, I [participated][chrip-project] with it in [chirp challenge][chirp-challenge-page].
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-I was working on my portfolio projects, and I did want a project
-that has a value, in this time I was interesting on twitter
-and creating content there,
-so it came to me an idea to build a twitter tool that
-bring some new twitter features like spaces search.. <br/>
-I had to learn the basics of backend with express and mongodb to build the project, I succeeded on that, and here is the result,
-hope you find the app useful.
+<!-- What it does -->
+
+### What it does
+
+The App authenticates (OAuth 1.0a) the user with his twitter account ,and it has tow features: 
+
+-  Setting and configuring Welcome messages.
+-  searching for spaces.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Challenges I ran into
+
+-  I am a Frontend dev, so I had to learn the basics of backend with express and mongodb in short time in order to build the project, and that's was challenging and exciting.
+-  Making the Authentication working was challenging because of the cross-origin cookies, so I used a proxy with the help of netlify
+-  Building the UI was challenging because I didn't had a complete design to work with.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
+-  Twitter Api
 -  MERN (Mongodb, Express, React, Nodejs)
 -  Bootstrap && React-Bootstrap
 -  Hope Ui Design System
 -  Styled Components
 -  React Testing Library
--  React Router Dom
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,6 +89,13 @@ hope you find the app useful.
 -  Mongodb
 -  Bootstrap && React-Bootstrap
 -  Styled Components
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!--What's next for Voneet -->
+
+## What's next for Voneet
+The app is easy to scale, so in the future I would add more features if I had time.
 
 <!-- CONTACT -->
 
@@ -86,6 +110,7 @@ hope you find the app useful.
 ## Acknowledgments
 
 -  [Twitter Api](https://developer.twitter.com/en/docs/twitter-api)
+-  [Chirp challenge][chirp-challenge-page]
 -  [Hope Ui Design System](https://templates.iqonic.design/hope-ui/react/build/)
 -  [MongoDB Crash Course](https://www.youtube.com/watch?v=ofme2o29ngU)
 -  [Express Crash Course](https://www.youtube.com/watch?v=SccSCuHhOw0)
@@ -98,3 +123,5 @@ hope you find the app useful.
 
 [app-screenshot]: readmeImages/appScreenShot.png
 [app-demo]: readmeImages/appDemo.gif
+[chrip-project]: https://devpost.com/software/voneet?ref_content=my-projects-tab&ref_feature=my_projects
+[chirp-challenge-page]: https://chirpdevchallenge.devpost.com/

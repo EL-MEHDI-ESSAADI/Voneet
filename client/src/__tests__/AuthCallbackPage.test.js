@@ -9,9 +9,9 @@ import axios from "axios";
 jest.mock("axios");
 
 describe("AuthcallbackPage", () => {
-   test("should display user and sucess message", async () => {
+   test("should display user and success message", async () => {
       // the returned promise from axios.get will resolved with authCallbackRes
-      axios.get.mockResolvedValue(successAuthCallbackRes);
+      axios.post.mockResolvedValue(successAuthCallbackRes);
 
       render(
          <MemoryRouter initialEntries={["/callback"]}>
@@ -33,7 +33,7 @@ describe("AuthcallbackPage", () => {
 
    test("should display fail message and login btn", async () => {
       // the returned promise from axios.get will reject
-      axios.get.mockRejectedValue(failResponse);
+      axios.post.mockRejectedValue(failResponse);
 
       render(
          <MemoryRouter initialEntries={["/callback"]}>
@@ -44,7 +44,7 @@ describe("AuthcallbackPage", () => {
       );
 
       const loginBtn = await screen.findByRole("button", { name: /login/i });
-      const failMessage = await screen.findByText(/Something went wrong please try to login again/i);
+      const failMessage = await screen.findByText(/Fail to login/i);
 
       // assersion: fail message displayed
       expect(failMessage).toBeInTheDocument();
