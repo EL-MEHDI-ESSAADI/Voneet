@@ -43,7 +43,7 @@ export const navLinksStore = [
 export const contactPlatforms = new Map([
    ["twitter", { link: "https://twitter.com/Von__Mehdi", Icon: AiFillTwitterCircle }],
    ["github", { link: "https://github.com/EL-MEHDI-ESSAADI", Icon: AiFillGithub }],
-   ["linkedin", { link: "https://www.linkedin.com/in/el-mehdi-essaadi-a80815247/", Icon: AiFillLinkedin }],
+   ["linkedin", { link: "https://www.linkedin.com/in/el-mehdi-essaadi", Icon: AiFillLinkedin }],
    ["email", { link: "mailto:mehdiessaadion@gmail.com", Icon: MdEmail }],
 ]);
 
