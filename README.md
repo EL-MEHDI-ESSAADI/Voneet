@@ -47,7 +47,7 @@
 <!-- ![Voneet app Screen Shot][app-screenshot] -->
 
 ![Voneet app Screen Shot][app-demo]
-Voneet is a Twitter tool that has some new twitter features, I [participated][chrip-project] with it in [chirp challenge][chirp-challenge-page].
+Voneet is a Twitter tool that has some new Twitter features, I [participated][chrip-project] with it in [chirp challenge][chirp-challenge-page].
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
