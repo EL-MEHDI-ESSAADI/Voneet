@@ -101,7 +101,7 @@ The app is easy to scale, so in the future I would add more features if I had ti
 
 ## Contact
 
-[El Mehdi Essaadi](https://www.linkedin.com/in/el-mehdi-essaadi-a80815247/) - mehdiessaadion@gmail.com
+[El Mehdi Essaadi](https://www.linkedin.com/in/el-mehdi-essaadi) - mehdiessaadion@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
