@@ -12,7 +12,7 @@
   <p align="center">
     A twitter tool that brings some new twitter freatures
     <br />
-    <a href="https://voneet.netlify.app/" target="_blank"><strong>View Demo »</strong></a>
+    <a href="https://voneet.mehdiessaadi.live" target="_blank"><strong>View Demo »</strong></a>
     <br />
   </p>
 </div>
