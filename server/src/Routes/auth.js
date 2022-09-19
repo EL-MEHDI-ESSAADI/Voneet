@@ -1,6 +1,6 @@
 import express from "express";
 import { TwitterApi } from "twitter-api-v2";
-import { appTokens, CALLBCK_URL, TEN_MINUTES, TWO_DAYS } from "../Data/index.js";
+import { appTokens, CALLBACK_URL, TEN_MINUTES, TWO_DAYS } from "../Data/index.js";
 import { asyncWrapper } from "../Helpers/utils.js";
 import { appOnlyClient } from "../Modules/index.js";
 
@@ -10,7 +10,7 @@ const router = express.Router();
 router.get(
    "/",
    asyncWrapper(async (req, res) => {
-      const authInfo = await appOnlyClient.generateAuthLink(CALLBCK_URL);
+      const authInfo = await appOnlyClient.generateAuthLink(CALLBACK_URL);
 
       // set temp tokens to the user
       req.session.tempUserTokens = {
