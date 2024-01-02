@@ -22,7 +22,7 @@ function TwitterApiAlert() {
       </svg>
       <div>
         Due to recent updates to Twitter's API, our tool features
-        are not working.
+        are unfortunately not working.
       </div>
     </Alert>
   );
